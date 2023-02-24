@@ -208,14 +208,16 @@ func UpdateIndex() {
 			fmt.Println(err)
 		}
 
-		var fmode os.FileMode = fstat.Mode()
+		/** fstat 型が分からないけど, os.FileInfoインタフェースを満たしている */
+		fmode := fstat.Mode() 
+		fname := fstat.Name()
 	
-		fmt.Println(fmode, path)
+		fmt.Println(fmode, fname)
 
 	}
 }
 
 func main() {
-	LsFiles()
-	// UpdateIndex()
+	// LsFiles()
+	UpdateIndex()
 }
